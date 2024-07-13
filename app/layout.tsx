@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import "./globals.css";
+import Script from "next/script";
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -23,6 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          src="https://app.viral-loops.com/widgetsV2/core/loader.js"
+          data-campaign-id="acpGNiK3NioYynVD71NEwqc71sU"
+          id="viral-loops-loader"
+          strategy="afterInteractive"
+        />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",

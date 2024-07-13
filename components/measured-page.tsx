@@ -5,6 +5,8 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/section-header";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { ViralLoops } from "./viral-loops";
 
 export function MeasuredPage() {
   return (
@@ -19,8 +21,15 @@ export function MeasuredPage() {
               model library
             </PageHeaderDescription>
             <PageActions>
-              <Button>Get Started</Button>
-              <Button variant="secondary">Learn More</Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button>Join Now</Button>
+                </DialogTrigger>
+                <DialogContent className="p-0 bg-transparent border-none">
+                  <ViralLoops ucid="acpGNiK3NioYynVD71NEwqc71sU" />
+                </DialogContent>
+              </Dialog>
+              <Button variant="outline">Get Started</Button>
             </PageActions>
           </PageHeader>
         </section>

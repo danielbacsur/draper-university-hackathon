@@ -7,6 +7,7 @@ import {
 } from "@/components/section-header";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ViralLoops } from "./viral-loops";
+import { signInWithGoogle } from "@/actions/auth";
 
 export function MeasuredPage() {
   return (
@@ -29,7 +30,7 @@ export function MeasuredPage() {
                   <ViralLoops ucid="acpGNiK3NioYynVD71NEwqc71sU" />
                 </DialogContent>
               </Dialog>
-              <Button variant="outline">Get Started</Button>
+              <Button variant="outline" onClick={() => signInWithGoogle()}>Get Started</Button>
             </PageActions>
           </PageHeader>
         </section>

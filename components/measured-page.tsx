@@ -13,13 +13,13 @@ export function MeasuredPage() {
   return (
     <>
       <main>
-        <section className="min-h-screen grid place-items-center">
+        <section className="min-h-screen  grid place-items-center">
           <PageHeader>
-            <PageHeaderHeading>Trade And Invest In AI Models</PageHeaderHeading>
-            <PageHeaderDescription>
+            <PageHeaderHeading>Trade & Invest In AI Models</PageHeaderHeading>
+            <PageHeaderDescription className="font-sans">
               Tokenize AI models, enable investors to acquire model shares, and
-              distribute equity based on usage. Access Hugging Face's vast AI
-              model library
+              distribute equity based on usage. Deploy and trade
+              HuggingFace&trade; models in minutes and start earning.
             </PageHeaderDescription>
             <PageActions>
               <Dialog>
@@ -30,7 +30,9 @@ export function MeasuredPage() {
                   <ViralLoops ucid="acpGNiK3NioYynVD71NEwqc71sU" />
                 </DialogContent>
               </Dialog>
-              <Button variant="outline" onClick={() => signInWithGoogle()}>Get Started</Button>
+              <Button variant="outline" onClick={() => signInWithGoogle()}>
+                Get Started
+              </Button>
             </PageActions>
           </PageHeader>
         </section>

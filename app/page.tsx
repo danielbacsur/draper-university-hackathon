@@ -2,9 +2,12 @@
 
 import { MeasuredPageWrapper } from "@/components/measured-page";
 import { ScrollControls, Scroll } from "@react-three/drei";
-import { Suspense, useState, useEffect,  } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import ReactDOM from "react-dom";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
 
 export default function OffScreenHeightMeasurer() {
   const [pages, setPages] = useState(0);
@@ -24,24 +27,50 @@ export default function OffScreenHeightMeasurer() {
   }, []);
 
   return (
-    <div className="w-full h-screen">
-      <Canvas gl={{ antialias: false }} dpr={[1, 1.5]}>
-        <Suspense fallback={null}>
-          <ScrollControls infinite damping={0.2} pages={pages + 1} distance={1}>
-            <Scroll html>
-              <div className="absolute -translate-y-full">
-                <MeasuredPageWrapper />
-              </div>
-              <div className="absolute">
-                <MeasuredPageWrapper />
-              </div>
-              <div className="absolute translate-y-full">
-                <MeasuredPageWrapper />
-              </div>
-            </Scroll>
-          </ScrollControls>
-        </Suspense>
-      </Canvas>
-    </div>
+    <>
+      <div className="fixed top-12 left-12">
+        <Image src="/logo.png" alt="Logo" width={48} height={48} />
+      </div>
+      <div className="hidden lg:flex fixed top-12 right-12 text-left text-xs leading-normal z-10 space-x-6 items-center">
+        <Button variant="link" size="sm" className="px-0">Marketplace</Button>
+        <Button variant="link" size="sm" className="px-0">Account</Button>
+        <Avatar>
+          <AvatarImage src="https://github.com/danielbacsur.png" alt="@shadcn" />
+          <AvatarFallback>DB</AvatarFallback>
+        </Avatar>
+      </div>
+      <div className="hidden lg:block fixed bottom-12 left-12 text-left text-xs leading-normal z-10">
+        <div className="font-bold">Decentralized AI for Everyone</div>
+        <div>building a cheaper and better future_</div>
+      </div>
+      <div className="hidden lg:block fixed bottom-12 right-12 text-right text-xs leading-normal z-10">
+        <div className="font-bold">Get In Touch</div>
+        <div>&gt; in collaboration with @huggingface</div>
+      </div>
+      <div className="w-full h-screen">
+        <Canvas gl={{ antialias: false }} dpr={[1, 1.5]}>
+          <Suspense fallback={null}>
+            <ScrollControls
+              infinite
+              damping={0.2}
+              pages={pages + 1}
+              distance={1}
+            >
+              <Scroll html>
+                <div className="absolute -translate-y-full">
+                  <MeasuredPageWrapper />
+                </div>
+                <div className="absolute">
+                  <MeasuredPageWrapper />
+                </div>
+                <div className="absolute translate-y-full">
+                  <MeasuredPageWrapper />
+                </div>
+              </Scroll>
+            </ScrollControls>
+          </Suspense>
+        </Canvas>
+      </div>
+    </>
   );
 }

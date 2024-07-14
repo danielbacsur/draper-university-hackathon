@@ -65,6 +65,11 @@ body,
   }
 }
 
+.mask-gradient {
+  -webkit-mask-image: linear-gradient(to left, transparent, black 25%);
+  mask-image: linear-gradient(to left, transparent, black 25%);
+}
+
 @layer base {
   * {
     @apply border-border;

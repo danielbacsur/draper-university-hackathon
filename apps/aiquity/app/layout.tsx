@@ -1,11 +1,8 @@
 import { ThemeProvider } from "@/components/theme-provider";
-import { Inter as FontSans } from "next/font/google";
 import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import Script from "next/script";
-
-const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "AiQuity",
@@ -32,15 +29,10 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-mono antialiased",
-          fontSans.variable
-        )}
-      >
+      <body className={"min-h-screen bg-background font-mono antialiased"}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >

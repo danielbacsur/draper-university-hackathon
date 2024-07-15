@@ -29,7 +29,7 @@ body,
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
-    --radius: 9999rem;
+    --radius: 1rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -63,6 +63,11 @@ body,
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+}
+
+.mask-gradient {
+  -webkit-mask-image: linear-gradient(to left, transparent, black 25%);
+  mask-image: linear-gradient(to left, transparent, black 25%);
 }
 
 @layer base {
